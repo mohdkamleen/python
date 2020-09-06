@@ -8,15 +8,11 @@ name = form["name"].value
 email = form["email"].value
 password = form["password"].value
 
-db = mysql.connector.connect(host='localhost', user='root', password='', database="jangosql") 
+db = mysql.connector.connect(host='localhost', user='root', password='', database="database") 
 cr = db.cursor() 
 
      
-cr.execute("INSERT INTO web_contact (username, password) VALUES (%s,%s)", (name, email))
+cr.execute("INSERT INTO table (name, email, password) VALUES (%s,%s,%s)", (name, email, password))
 
 db.commit()
-
-
-cr.execute("select * from web_contact")
  
-print(db)
